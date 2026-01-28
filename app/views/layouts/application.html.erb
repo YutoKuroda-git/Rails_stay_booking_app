@@ -18,6 +18,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render "shared/header" %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>
