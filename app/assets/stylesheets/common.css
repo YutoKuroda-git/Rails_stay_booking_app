@@ -6,6 +6,8 @@ body {
   font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
   font-size: 1rem;
   font-weight: 400;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
 /* flash */
@@ -101,7 +103,7 @@ body {
 }
 
 .dropdown_menu {
-  display: block;
+  display: none;
   position: absolute;
   left: 0;
   margin-top: 4px;
@@ -142,9 +144,9 @@ body {
   display: block;
 }
 
-/* usersのnew.html */
+/* sessionsのnew.html */
 .input_container {
-  background-color: #dfe2e6;
+  background-color: #f5f5f5;
   min-height: 100vh;
   padding: 60px 0 120px;
 }
@@ -153,7 +155,7 @@ body {
   max-width: 700px;
   background-color: white;
   border-radius: 4px;
-  margin: 5px auto;
+  margin: auto;
   padding: 30px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
@@ -176,13 +178,16 @@ body {
 .input_field {
   width: 100%;
   height: 45px;
-  margin-bottom: 14px;
   padding-left: 14px;
   box-sizing: border-box;
   border: 1px solid rgb(199, 198, 198);
   border-radius: 4px;
   font-size: 14px;
   outline: none;
+}
+
+.required_label {
+  margin-top: 14px;
 }
 
 .required_label::after {
@@ -195,7 +200,7 @@ body {
 
 .submit_btn {
   width: 100%;
-  margin-bottom: 14px;
+  margin-top: 20px;
   height: 60px;
   box-sizing: border-box;
   border: none;
@@ -210,7 +215,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 14px;
+  margin-top: 20px;
   height: 60px;
   box-sizing: border-box;
   border: 1px solid rgb(199, 198, 198);
@@ -219,3 +224,180 @@ body {
   color: dimgray;
   font-size: 16px;
 }
+
+/* usersのshow.html */
+.user_section_container {
+  margin: auto;
+  padding: 40px 32px 160px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.user_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.user_section_container h1 {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.side_nav {
+  padding: 0;
+  margin: 0;
+  width: 350px;
+  height: fit-content;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  list-style: none;
+}
+
+.side_nav_item1 {
+  padding: 20px 24px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.side_nav_item2 {
+  padding: 20px 24px;
+  border: none;
+}
+
+.nav_btn {
+  color: black;
+  text-decoration: none;
+}
+
+.nav_btn.active {
+  color: red;
+}
+
+.account_info {
+  width: 100%;
+}
+
+.account_info_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.account_info_header h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.edit_btn {
+  color: #FF5A5F;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.account_info_main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.label {
+  margin-top: 0;
+  width: 20%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.account_info_main p {
+  margin: 0;
+  font-size: 16px;
+  width: 80%;
+}
+
+.account_icon {
+  width: 80%;
+}
+
+/* edit.html */
+.account_info_label {
+  margin-top: 0;
+  width: 25%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.label_group {
+  width: 25%;
+}
+
+.form_note {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.edit_form_action {
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.submit_edit_btn {
+  background-color: #FF5A5F;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel_btn {
+  color: dimgray;
+  padding: 10px 40px;
+  border: 1px solid #c0c0c0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon_group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile_icon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload_btn {
+  margin-left: 20px;
+}
+
+.input_field_introduction {
+  width: 100%;
+  height: 125px;
+  margin-bottom: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgb(199, 198, 198);
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+

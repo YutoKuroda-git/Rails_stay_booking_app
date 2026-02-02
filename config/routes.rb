@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   get "reservations/index"
   get "rooms/index"
-  get "users/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -17,7 +16,13 @@ Rails.application.routes.draw do
 
   root "rooms#index"
 
-  resource :user, only: [ :show ]
+  resource :user, only: [] do
+  get :account
+  get :profile
+  get :edit_profile
+  patch :profile, action: :update_profile
+  end
+
   resources :rooms
   resources :reservations
 end
