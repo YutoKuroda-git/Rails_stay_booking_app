@@ -7,14 +7,16 @@ body {
   font-size: 1rem;
   font-weight: 400;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: white;
 }
 
 /* flash */
 .notification {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .notice {
@@ -25,36 +27,45 @@ body {
   border-radius: 4px;
 }
 
+/* バリデーションエラー */
+
+.field_error_message {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #e60023;
+}
+
 /* _header.html */
 .header {
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 .header_nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   max-width: 1440px;
-  width: 100%;
-  height: 80px;
   margin: 0 auto;
-  padding: 0 30px;
-  box-sizing: border-box;
+  padding: 0 32px;
+  height: 80px;
   color: black;
 }
 
 .header_list {
   display: flex;
   justify-content: space-between;
-  list-style: none;
+  margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.header_text {
+.header_logo {
   font-size: 30px;
   font-weight: 700;
   font-family: 'Noto Sans JP', sans-serif;
   color: #FF5A5F;
+  text-decoration: none;
 }
 
 .login {
@@ -110,9 +121,9 @@ body {
   padding: 4px 0;
   min-width: 120px;
   background: white;
-  border: 1px solid #ccc;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   list-style: none;
   z-index: 100;
 }
@@ -139,9 +150,39 @@ body {
   background-color: #f0f0f0;
 }
 
-/* hoverでドロップダウンを表示 */
-.user_dropdown:hover .dropdown_menu {
+/* クリックでドロップダウンを表示 */
+.user_dropdown.active .dropdown_menu {
   display: block;
+}
+
+/* _footer */
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 465px;
+  bottom: 0;
+}
+
+.footer_container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 32px;
+  margin: auto;
+}
+
+.footer_logo {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #FF5A5F;
+  text-decoration: none;
+}
+
+.footer_copyright {
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 /* sessionsのnew.html */
@@ -180,7 +221,7 @@ body {
   height: 45px;
   padding-left: 14px;
   box-sizing: border-box;
-  border: 1px solid rgb(199, 198, 198);
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-size: 14px;
   outline: none;
@@ -218,7 +259,7 @@ body {
   margin-top: 20px;
   height: 60px;
   box-sizing: border-box;
-  border: 1px solid rgb(199, 198, 198);
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
   text-decoration: none;
   color: dimgray;
@@ -250,14 +291,13 @@ body {
   margin: 0;
   width: 350px;
   height: fit-content;
-  background-color: white;
-  border: 1px solid #d3d3d3;
+  border: 1px solid #e0e0e0;
   list-style: none;
 }
 
 .side_nav_item1 {
   padding: 20px 24px;
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .side_nav_item2 {
@@ -283,7 +323,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .account_info_header h2 {
@@ -363,7 +403,7 @@ body {
 .cancel_btn {
   color: dimgray;
   padding: 10px 40px;
-  border: 1px solid #c0c0c0;
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
   font-size: 18px;
   font-weight: 500;
@@ -394,10 +434,253 @@ body {
   margin-bottom: 14px;
   padding: 14px;
   box-sizing: border-box;
-  border: 1px solid rgb(199, 198, 198);
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-size: 14px;
   outline: none;
 }
+
+/* rooms_index */
+.firstview {
+  margin-bottom: 180px;
+  padding-top: 80px;
+  width: 100%;
+  height: 750px;
+  background-image: url(https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.fv_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding: auto;
+}
+
+.fv_title {
+  color: white;
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 101px;
+  margin-bottom: 48px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.recommend_area {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.recommend_area_container {
+  margin-bottom: 260px;
+}
+
+.recommend_area_title {
+  border-bottom: 3px solid #FF5A5F;
+  font-size: 44px;
+  line-height: 66px;
+  margin-bottom: 140px;
+  padding-bottom: 15px;
+  width: fit-content;
+}
+
+/* rooms_new */
+.rooms_form_container {
+  border-radius: 12px;
+  margin: 40px auto 180px;
+  padding: 30px;
+  width: 700px;
+}
+
+.rooms_form_title {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 39px;
+}
+
+.rooms_form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.rooms_form_label {
+  width: 30%;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.rooms_form_label::after {
+  margin-left: 4px;
+  box-sizing: border-box;
+  content: "*";
+  color: rgb(255, 51, 0);
+  font-size: 14px;
+}
+
+.rooms_input_group {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms_input_field {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rooms_input_field_introduction {
+  display: block;
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rooms_input_field::placeholder {
+  font-size: 14px;
+}
+
+.rooms_input_field_introduction::placeholder {
+  font-size: 14px;
+}
+
+/* rooms_show */
+.room_details_container {
+  max-width: 900px;
+  margin: 0 auto 260px;
+  padding: 40px 32px 0;
+}
+
+.back_btn {
+  margin-bottom: 24px;
+  color: #FF5A5F;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.room_details_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 30px;
+  width: 900px;
+}
+
+.room_details_image {
+  border-radius: 10px;
+  object-fit: contain;
+}
+.room_details {
+  width: 60%;
+}
+
+.room_stars {
+  margin: 10px 0 3px;
+  color: orange;
+}
+
+.rating {
+  margin-left: 10px;
+  color: #FF5A5F;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.room_details_name_and_price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.room_details_name {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.room_details_text {
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 40px;
+  font-size: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* rooms_registered */
+.registered_rooms_container {
+  max-width: 1440px;
+  margin: 40px auto 260px;
+  padding: 0 32px;
+}
+
+.registered_rooms_container h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.registered_table {
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  border-collapse: separate;
+  border-spacing: 0 1px;
+}
+
+.table_room_image {
+  display: block;
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.registered_table a {
+  color: #FF5A5F;
+  text-decoration: none;
+}
+
+.registered_table th {
+  padding: 10px 10px;
+  border-bottom: 1px solid black;
+  text-align: left;
+  word-break: keep-all;
+}
+
+.registered_table tbody td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  word-break: keep-all;
+}
+
+
+
+
 
 

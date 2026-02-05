@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   patch :profile, action: :update_profile
   end
 
-  resources :rooms
+  resources :rooms, only: [ :index, :show, :new, :create ] do
+    collection do
+      get :search
+      get :registered
+    end
+  end
+
   resources :reservations
 end

@@ -25,3 +25,8 @@
     </div>
   </div>
 </section>
+<div class="notification">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>

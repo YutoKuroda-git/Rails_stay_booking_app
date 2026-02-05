@@ -1,0 +1,5 @@
+<% if obj.errors[field].any? %>
+  <% obj.errors[field].each do |message| %>
+    <p class="field_error_message"><%= message %></p>
+  <% end %>
+<% end %>

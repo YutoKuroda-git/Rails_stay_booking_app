@@ -14,7 +14,11 @@
         <div class="account_info_main">
           <%= f.label :icon ,"アイコン画像", class: "account_info_label" %>
           <div class="icon_group">
-            <%= image_tag(current_user.icon.presence || "default_icon.png", class: "profile_icon") %>
+            <% if current_user.icon.attached? %>
+              <%= image_tag current_user.icon, class: "profile_icon" %>
+            <% else %>
+              <%= image_tag "default_icon.png", class: "profile_icon" %>
+            <% end %>
             <%= f.file_field :icon, accept: "image/*", class: "upload_btn" %>
           </div>
         </div>

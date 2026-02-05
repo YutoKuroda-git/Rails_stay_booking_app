@@ -11,7 +11,6 @@
       </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="account_info_main">
           <%= f.label :email ,"メールアドレス", class: "account_info_label" %>
@@ -44,3 +43,4 @@
     </div>
   </div>
 </section>
+<%= render "devise/shared/error_messages", resource: resource %>
