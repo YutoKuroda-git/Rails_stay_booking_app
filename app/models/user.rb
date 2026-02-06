@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :icon
   has_many :rooms, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end

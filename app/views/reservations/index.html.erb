@@ -1,2 +1,45 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<section class="registered_rooms_container">
+  <h2>予約済み一覧</h2>
+  <div class="table-responsive">
+    <table class="registered_table">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>合計料金</th>
+          <th>チェックイン</th>
+          <th>チェックアウト</th>
+          <th>予約確定日時</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @reservations.each do |reservation| %>
+          <% room = reservation.room %>
+          <tr>
+            <td>
+              <% if room.image.attached? %>
+                <%= image_tag room.image, class: "table_room_image" %>
+              <% else %>
+                <%= image_tag "default_image.png", class: "table_room_image" %>
+              <% end %>
+            </td>
+            <td><%= link_to room.name, room_path(room) %></td>
+            <td><%= room.description %></td>
+            <td>¥<%= number_with_delimiter(reservation.total_price) %></td>
+            <td><%= reservation.check_in_date.strftime("%Y/%m/%d") %></td>
+            <td><%= reservation.check_out_date.strftime("%Y/%m/%d") %></td>
+            <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="notification">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>

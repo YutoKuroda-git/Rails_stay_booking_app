@@ -25,7 +25,30 @@
         <p class="room_details_text"><%= @room.description %></p>
       </div>
       <div class="reservation_form">
-        <p class="room_details_name">¥<%= number_with_delimiter(@room.price_per_night) %>~</p>
+        <p class="room_details_price">¥<%= number_with_delimiter(@room.price_per_night) %>~</p>
+        <%= form_with model: [@room, @reservation], url: confirm_room_reservations_path(@room), method: :post, local: true, data: { turbo: false } do |f| %>
+          <div class="reservation_box">
+            <div class="date_box">
+              <div class="date_item">
+                <%= f.label :check_in_date, "チェックイン" %>
+                <%= f.date_field :check_in_date %>
+                <%= render "shared/error", obj: @reservation, field: :check_in_date %>
+              </div>
+              <div class="date_item">
+                <%= f.label :check_out_date, "チェックアウト" %>
+                <%= f.date_field :check_out_date %>
+                <%= render "shared/error", obj: @reservation, field: :check_out_date %>
+              </div>
+            </div>
+
+            <div class="guest_box">
+              <%= f.label :guest_count, "人数" %>
+              <%= f.number_field :guest_count, placeholder: "0" %>
+              <%= render "shared/error", obj: @reservation, field: :guest_count %>
+            </div>
+          </div>
+          <%= f.submit "予約する", class: "reservation_btn" %>
+        <% end %>
       </div>
     </div>
   </div>
