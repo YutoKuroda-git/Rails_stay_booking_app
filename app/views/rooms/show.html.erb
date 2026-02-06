@@ -1,7 +1,9 @@
-<div class="search_rooms_container">
-    <div class="search_rooms_form">
-      <p>戻るボタン</p>
-    </div>
+<div class="search_rooms_form_container">
+    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area, placeholder: "エリア名を入力", class: "search_rooms_form_input" %>
+        <%= f.text_field :keyword, placeholder: "キーワードを入力", class: "search_rooms_form_keyword" %>
+        <%= f.submit "検索", class: "search_form_btn" %>
+    <% end %>
 </div>
 
 <section class="room_details_container">
@@ -15,16 +17,15 @@
     <% else %>
       <%= image_tag "default_image.png", class: "room_details_image" %>
     <% end %>
-    <div class="room_details">
-      <div class="room_details_name_and_price">
+    <div class="room_details_info">
+      <div class="room_details">
         <p class="room_details_name"><%= @room.name %></p>
-        <p class="room_details_name">¥<%= number_with_delimiter(@room.price_per_night) %>~</p>
-      </div>
         <p class="room_stars">★★★★★<span class="rating">5.0</span></p>
         <p class="room_details_text"><%= @room.address %></p>
         <p class="room_details_text"><%= @room.description %></p>
-
+      </div>
       <div class="reservation_form">
+        <p class="room_details_name">¥<%= number_with_delimiter(@room.price_per_night) %>~</p>
       </div>
     </div>
   </div>
