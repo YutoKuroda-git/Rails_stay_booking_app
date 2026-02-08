@@ -1,0 +1,49 @@
+<section class="rooms_form_container">
+    <h1 class="rooms_form_title">新規登録</h1>
+    <%= form_with model: @room do |f| %>
+        <div class="rooms_form">
+        <%= f.label :name ,"施設名", class: "rooms_form_label" %>
+        <div class="rooms_input_group">
+          <%= f.text_field :name, placeholder: "ルーム名を入力", class: "rooms_input_field", autofocus: true %>
+          <%= render "shared/error", obj: @room, field: :name %>
+        </div>
+      </div>
+
+      <div class="rooms_form">
+        <%= f.label :description ,"施設詳細", class: "rooms_form_label" %>
+        <div class="rooms_input_group">
+          <%= f.text_area :description, placeholder: "施設詳細を入力", class: "rooms_input_field_introduction" %>
+          <%= render "shared/error", obj: @room, field: :description %>
+        </div>
+      </div>
+      
+      <div class="rooms_form">
+        <%= f.label :price_per_night ,"料金", class: "rooms_form_label" %>
+        <div class="rooms_input_group">
+          <%= f.number_field :price_per_night, placeholder: "料金を入力", class: "rooms_input_field" %>
+          <%= render "shared/error", obj: @room, field: :price_per_night %>
+        </div>
+      </div>
+
+      <div class="rooms_form">
+        <%= f.label :address ,"住所", class: "rooms_form_label" %>
+        <div class="rooms_input_group">
+          <%= f.text_field :address, placeholder: "住所を入力", class: "rooms_input_field" %>
+          <%= render "shared/error", obj: @room, field: :address %>
+        </div>
+      </div>
+
+      <div class="rooms_form">
+        <%= f.label :image, "施設画像", class: "rooms_form_label" %>
+        <div class="rooms_input_group">
+          <%= f.file_field :image, accept: "image/*", class: "rooms_upload_btn" %>
+          <%= render "shared/error", obj: @room, field: :image %>
+        </div>
+      </div>
+
+      <div class="form_action">
+        <%= f.submit "保存", class: "submit_btn" %>
+        <%= link_to "キャンセル", :back, class: "login_btn" %>
+      </div>
+    <% end %>
+</section>

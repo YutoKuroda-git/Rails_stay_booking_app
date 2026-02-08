@@ -1,0 +1,1023 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* flash */
+.notification {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.notice {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 15px 40px;
+  border-radius: 4px;
+}
+
+.alert {
+  background-color: #ff4747;
+  color: white;
+  font-size: 14px;
+  padding: 15px 40px;
+  border-radius: 4px;
+}
+
+/* バリデーションエラー */
+
+.field_error_message {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #e60023;
+}
+
+/* _header.html */
+.header {
+  background-color: #f5f5f5;
+}
+
+.header_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 80px;
+  color: black;
+}
+
+.header_list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header_logo {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #FF5A5F;
+  text-decoration: none;
+}
+
+.login {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.btn {
+  background-color: #FF5A5F;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: .375rem .75rem;
+  border-radius: 4px;
+}
+
+.user_dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.user_info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user_icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user_name {
+  display: flex;
+  align-items: center;
+}
+
+.tri {
+  font-size: 9px;
+  margin-left: 4px;
+}
+
+.dropdown_menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  margin-top: 4px;
+  padding: 4px 0;
+  min-width: 120px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  list-style: none;
+  z-index: 100;
+}
+
+.dropdown_menu li {
+  padding: 0 8px;
+  text-align: left;
+}
+
+.dropdown_menu li a {
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgb(190, 190, 190);
+  margin: 4px 0;
+  padding: 0;
+}
+
+.dropdown_menu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* クリックでドロップダウンを表示 */
+.user_dropdown.active .dropdown_menu {
+  display: block;
+}
+
+/* _footer */
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 465px;
+  bottom: 0;
+}
+
+.footer_container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 32px;
+  margin: auto;
+}
+
+.footer_logo {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #FF5A5F;
+  text-decoration: none;
+}
+
+.footer_copyright {
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* sessionsのnew.html */
+.input_container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 60px 0 120px;
+}
+
+.input_form {
+  max-width: 700px;
+  background-color: white;
+  border-radius: 4px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.input_form_title {
+  font-size: 35px;
+  font-weight: 500;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.input_form label {
+  display: block;
+  color: dimgray;
+  font-size: 14px;
+  font-weight: 700;;
+  padding: 5px 0;
+}
+
+.input_field {
+  width: 100%;
+  height: 45px;
+  padding-left: 14px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.required_label {
+  margin-top: 14px;
+}
+
+.required_label::after {
+  margin-left: 4px;
+  box-sizing: border-box;
+  content: "*";
+  color: rgb(255, 51, 0);
+  font-size: 14px;
+}
+
+.submit_btn {
+  width: 100%;
+  margin-top: 20px;
+  height: 60px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #FF5A5F;
+  font-size: 16px;
+}
+
+.login_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  height: 60px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: dimgray;
+  font-size: 16px;
+}
+
+/* usersのshow.html */
+.user_section_container {
+  margin: auto;
+  padding: 40px 32px 160px;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.user_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.user_section_container h1 {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.side_nav {
+  padding: 0;
+  margin: 0;
+  width: 350px;
+  height: fit-content;
+  border: 1px solid #e0e0e0;
+  list-style: none;
+}
+
+.side_nav_item1 {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side_nav_item2 {
+  padding: 20px 24px;
+  border: none;
+}
+
+.nav_btn {
+  color: black;
+  text-decoration: none;
+}
+
+.nav_btn.active {
+  color: red;
+}
+
+.account_info {
+  width: 100%;
+}
+
+.account_info_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.account_info_header h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.edit_btn {
+  color: #FF5A5F;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.account_info_main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.label {
+  margin-top: 0;
+  width: 20%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.account_info_main p {
+  margin: 0;
+  font-size: 16px;
+  width: 80%;
+}
+
+.account_icon {
+  width: 80%;
+}
+
+/* edit.html */
+.account_info_label {
+  margin-top: 0;
+  width: 25%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.label_group {
+  width: 25%;
+}
+
+.form_note {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.edit_form_action {
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.submit_edit_btn {
+  background-color: #FF5A5F;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel_btn {
+  color: dimgray;
+  padding: 10px 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon_group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile_icon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload_btn {
+  margin-left: 20px;
+}
+
+.input_field_introduction {
+  width: 100%;
+  height: 125px;
+  margin-bottom: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+/* rooms_index */
+.firstview {
+  margin-bottom: 180px;
+  padding-top: 80px;
+  width: 100%;
+  height: 750px;
+  background-image: url(https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.fv_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding: auto;
+}
+
+.fv_title {
+  color: white;
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 101px;
+  margin-bottom: 48px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.fv_search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.input_area_field {
+  width: 400px;
+  height: 60px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 60px;
+  background-color: white;
+  outline: none;
+}
+
+.input_area_field::placeholder {
+  font-size: 14px;
+}
+
+
+.search_btn {
+  background-color: #FF5A5F;
+  color: white;
+  width: 100px;
+  height: 60px;
+  line-height: 60px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.recommend_area {
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  padding: 0 32px;
+}
+
+.recommend_area_container {
+  margin-bottom: 260px;
+}
+
+.recommend_area_title {
+  border-bottom: 3px solid #FF5A5F;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 66px;
+  margin-bottom: 140px;
+  padding-bottom: 15px;
+  width: fit-content;
+}
+
+.recommend_areas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.recommend_area_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 320px;
+  height: 450px;
+  padding: 40px 24px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 26px;
+  text-decoration: none;
+}
+
+.recommend_area_item.tokyo {
+  background-image: url("/assets/tokyo.jpg");
+}
+
+.recommend_area_item.osaka {
+  background-image: url("/assets/osaka.jpg");
+}
+
+.recommend_area_item.kyoto {
+  background-image: url("/assets/kyoto.jpg");
+}
+
+.recommend_area_item.sapporo {
+  background-image: url("/assets/sapporo.jpg");
+}
+
+.recommend_area_name {
+  color: white;
+  font-size: 28px;
+}
+
+.location_pin {
+  fill: white;
+  width: 20px;
+  height: 20px;
+}
+
+/* rooms_new */
+.rooms_form_container {
+  border-radius: 12px;
+  margin: 40px auto 180px;
+  padding: 30px;
+  width: 700px;
+}
+
+.rooms_form_title {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 39px;
+}
+
+.rooms_form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.rooms_form_label {
+  width: 30%;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.rooms_form_label::after {
+  margin-left: 4px;
+  box-sizing: border-box;
+  content: "*";
+  color: rgb(255, 51, 0);
+  font-size: 14px;
+}
+
+.rooms_input_group {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rooms_input_field {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rooms_input_field_introduction {
+  display: block;
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rooms_input_field::placeholder {
+  font-size: 14px;
+}
+
+.rooms_input_field_introduction::placeholder {
+  font-size: 14px;
+}
+
+/* rooms_show */
+.room_details_container {
+  max-width: 900px;
+  margin: 0 auto 260px;
+  padding: 40px 32px 0;
+}
+
+.back_btn {
+  margin-bottom: 24px;
+  color: #FF5A5F;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.room_details_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 30px 30px 30px 0;
+  width: 900px;
+}
+
+.room_details_image {
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.room_details_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.room_details {
+  width: 60%;
+}
+
+.room_stars {
+  margin: 10px 0 3px;
+  color: orange;
+}
+
+.rating {
+  margin-left: 10px;
+  color: #FF5A5F;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.room_details_name {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.room_details_text {
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.reservation_form {
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.room_details_price {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+}
+
+.reservation_box {
+  margin-bottom: 16px;
+  border: 1px solid dimgray;
+  border-radius: 12px;
+}
+
+.date_box {
+  display: flex;
+  border-bottom: 1px solid dimgray;
+}
+
+.date_item {
+  flex: 1;
+  padding: 10px;
+}
+
+.date_item:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.guest_box {
+  padding: 10px;
+}
+
+.reservation_box label {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.reservation_box input {
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.reservation_btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #FF5A5F;
+  cursor: pointer;
+}
+
+/* rooms_registered */
+.registered_rooms_container {
+  max-width: 1440px;
+  margin: 40px auto 260px;
+  padding: 0 32px;
+}
+
+.registered_rooms_container h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.registered_table {
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  border-collapse: separate;
+  border-spacing: 0 1px;
+}
+
+.table_room_image {
+  display: block;
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.registered_table a {
+  color: #FF5A5F;
+  text-decoration: none;
+}
+
+.registered_table th {
+  padding: 10px 10px;
+  border-bottom: 1px solid black;
+  text-align: left;
+  word-break: keep-all;
+}
+
+.registered_table tbody td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  word-break: keep-all;
+}
+
+/* rooms_search */
+.search_rooms_form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+  background-color: #f5f5f5;
+}
+
+.search_rooms_result {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.search_rooms_form_input {
+  height: 45px;
+  padding: 0 0 0 40px;
+  width: 285px;
+  font-size: 16px;
+  line-height: 45px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  background-image: url("/assets/location.svg");
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  background-size: 18px 18px;
+}
+
+.search_rooms_form_keyword {
+  height: 45px;
+  padding: 0 0 0 40px;
+  width: 285px;
+  font-size: 16px;
+  line-height: 45px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  background-image: url("/assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  background-size: 18px 18px;
+}
+
+.search_rooms_form_input::placeholder {
+  font-size: 14px;
+}
+
+.search_rooms_form_keyword::placeholder {
+  font-size: 14px;
+}
+
+.search_form_btn {
+  padding: 0;
+  font-size: 16px;
+  line-height: 45px;
+  height: 45px;
+  width: 100px;
+  border-radius: 4px;
+  color: white;
+  background-color: #FF5A5F;
+  border: none;
+}
+
+.search_rooms_container {
+  max-width: 1440px;
+  margin: 40px auto 260px;
+  padding: 0 32px;
+}
+
+.search_room_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+  list-style: none;
+}
+
+.search_room_item {
+  width: calc((100% - 64px) / 3);
+  border-radius: 26px;
+}
+
+.search_room_image {
+  width: 100%;
+  border-radius: 26px;
+  object-fit: cover;
+}
+
+.room_details_wrapper {
+  margin: 0;
+  padding: 0 24px 20px;
+}
+
+.room_details_text_wrapper {
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.description_3lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  line-height: 1.5;
+  height: calc(1.5em * 3);
+}
+
+.room_details_name.border_none {
+  color: dimgray;
+  margin: 0;
+  border: none;
+}
+
+.price_and_btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  height: 58px;
+  font-size: 18px;
+  background-color: #FF5A5F;
+  color: white;
+  line-height: 58px;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+/* reservations_confirm */
+.reservations_confirm_container {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 0 180px;
+}
+
+.reservations_confirm_title {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.reservations_confirm_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.confirm_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confirm_item .label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.confirm_item .value {
+  margin: 0;
+  font-size: 16px;
+}
+
+.confirm_item .price {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.confirm_notice {
+  margin: 0;
+  font-size: 16px;
+}

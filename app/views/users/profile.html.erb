@@ -1,0 +1,32 @@
+<section class="user_section_container">
+  <h1>設定</h1>
+  <div class="user_container">
+    <ul class="side_nav">
+      <li class="side_nav_item1"><%= link_to "アカウント", account_user_path, class: "nav_btn #{'active' if current_page?(account_user_path)}" %></li>
+      <li class="side_nav_item2"><%= link_to "プロフィール", profile_user_path, class: "nav_btn #{'active' if current_page?(profile_user_path)}" %></li>
+    </ul>
+    <div class="account_info">
+      <div class="account_info_header">
+        <h2>プロフィール</h2>
+        <%= link_to "編集", edit_profile_user_path, class: "edit_btn" %>
+      </div>
+      <div class="account_info_main">
+        <label class="label">アイコン画像</label>
+        <div class="account_icon"><%= image_tag(current_user.icon.presence || "default_icon.png", class: "profile_icon") %></div>
+      </div>
+      <div class="account_info_main">
+        <label class="label">名前</label>
+        <p><%= current_user.name %></p>
+      </div>
+      <div class="account_info_main">
+        <label class="label">自己紹介</label>
+        <p><%= current_user.introduction %></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="notification">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>

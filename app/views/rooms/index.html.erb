@@ -1,0 +1,44 @@
+<div class="firstview">
+  <section class="fv_container">
+    <h2 class="fv_title">To Stayで<br>まだ体験したことのない<br>旅をしよう</h2>
+    <div class="fv_search">
+      <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area, placeholder: "エリア名を入力", class: "input_area_field" %>
+        <%= f.submit "検索", class: "search_btn" %>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<div class="recommend_area">
+  <section class="recommend_area_container">
+    <h2 class="recommend_area_title">おすすめのエリア</h2>
+    <div class="recommend_areas">
+      <%= link_to search_rooms_path(area: "東京"), class: "recommend_area_item tokyo" do %>
+        <span class="recommend_area_name">東京</span>
+        <span class="recommend_area_name"><svg class="location_pin" viewBox="0 0 16 16"><path d="M 8 16 s 6 -5.686 6 -10 A 6 6 0 0 0 2 6 c 0 4.314 6 10 6 10 Z m 0 -7 a 3 3 0 1 1 0 -6 a 3 3 0 0 1 0 6 Z"/></svg> Tokyo</span>
+      <% end %>
+
+      <%= link_to search_rooms_path(area: "大阪"), class: "recommend_area_item osaka" do %>
+        <span class="recommend_area_name">大阪</span>
+        <span class="recommend_area_name"><svg class="location_pin" viewBox="0 0 16 16"><path d="M 8 16 s 6 -5.686 6 -10 A 6 6 0 0 0 2 6 c 0 4.314 6 10 6 10 Z m 0 -7 a 3 3 0 1 1 0 -6 a 3 3 0 0 1 0 6 Z"/></svg> Osaka</span>
+      <% end %>
+
+      <%= link_to search_rooms_path(area: "京都"), class: "recommend_area_item kyoto" do %>
+        <span class="recommend_area_name">京都</span>
+        <span class="recommend_area_name"><svg class="location_pin" viewBox="0 0 16 16"><path d="M 8 16 s 6 -5.686 6 -10 A 6 6 0 0 0 2 6 c 0 4.314 6 10 6 10 Z m 0 -7 a 3 3 0 1 1 0 -6 a 3 3 0 0 1 0 6 Z"/></svg> Kyoto</span>
+      <% end %>
+
+      <%= link_to search_rooms_path(area: "札幌"), class: "recommend_area_item sapporo" do %>
+        <span class="recommend_area_name">札幌</span>
+        <span class="recommend_area_name"><svg class="location_pin" viewBox="0 0 16 16"><path d="M 8 16 s 6 -5.686 6 -10 A 6 6 0 0 0 2 6 c 0 4.314 6 10 6 10 Z m 0 -7 a 3 3 0 1 1 0 -6 a 3 3 0 0 1 0 6 Z"/></svg> Sapporo</span>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<div class="notification">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>

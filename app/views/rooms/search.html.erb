@@ -1,0 +1,38 @@
+<div class="search_rooms_form_container">
+    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+        <%= f.text_field :area, placeholder: "エリア名を入力", class: "search_rooms_form_input" %>
+        <%= f.text_field :keyword, placeholder: "キーワードを入力", class: "search_rooms_form_keyword" %>
+        <%= f.submit "検索", class: "search_form_btn" %>
+    <% end %>
+</div>
+
+<section class="search_rooms_container">
+  <p class="search_rooms_result"><strong><%= @count %></strong> 件が見つかりました。</h2>
+  <% if @rooms.any? %>
+    <ul class="search_room_list">
+      <% @rooms.each do |room| %>
+        <li class="search_room_item">
+          <% if room.image.attached? %>
+            <%= image_tag room.image, class: "search_room_image" %>
+          <% else %>
+            <%= image_tag "default_image.png", class: "search_room_image" %>
+          <% end %>
+          <div class="room_details_wrapper">
+            <p class="room_details_name"><%= room.name %></p>
+            <p class="room_stars">★★★★★<span class="rating">5.0</span></p>
+            <p class="room_details_text"><%= room.address %></p>
+            <div class="room_details_text_wrapper">
+              <p class="description_3lines"><%= room.description %></p>
+            </div>
+            <div class="price_and_btn">
+              <p class="room_details_name border_none">¥<%= number_with_delimiter(room.price_per_night) %>~</p>
+              <%= link_to "詳細はこちら", room_path(room), class: "details_btn" %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+      <p>該当する施設はありません。</p>
+  <% end %>
+</section>
